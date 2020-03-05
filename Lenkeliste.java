@@ -15,6 +15,28 @@ public class Lenkeliste<T> implements Liste<T> {
       this.innhold = innhold;
     }
   }
+  
+  protected class LenkelisteIterator implements Iterator<T> {
+    private Node gjeldende;
+  
+    public LenkelisteIterator() {
+      gjeldende = start;
+    }
+
+    public boolean hasNext() {
+      return (gjeldende.neste != null);
+    }
+
+    public T next() {
+      Node returneres = gjeldende;
+      gjeldende = gjeldene.neste;
+      return returneres.innhold;
+    }
+  }
+  
+  public Iterator<T> iterator() {
+    return new LenkelisteIterator();
+  }
 
   // Metoden legger til et element på slutten av listen.
   // @param x er elementet som skal legges til (typeparameter).
@@ -42,6 +64,7 @@ public class Lenkeliste<T> implements Liste<T> {
   // @param pos er posisjonen i listen der elementet skal legges til i.
   // @param x er elementet som skal legges til.
   public void leggTil(int pos, T x) throws UgyldigListeIndeks{
+    
     // Behandler ugyldige posisjonsindekser (når posisjonen er større enn antall elementer eller er negativ).
     // Kaster unntaksklassen "UgyldigListeIndeks".
     if  (pos > antall || pos < 0) {
@@ -80,6 +103,7 @@ public class Lenkeliste<T> implements Liste<T> {
   // @param pos er posisjonen der elementet skal settes inn i.
   // @param x er elementet som skal settes inn.
   public void sett(int pos, T x) throws UgyldigListeIndeks {
+    
     // Behandler ugyldige posisjonsindekser, altså når posisjonen er negativ eller er større enn antall elementer - 1
     // (Ettersom vi teller fra indeks 0 og oppover, kan pos ikke være lik antall siden da vil vi havne på en posisjon uten node).
     if  (pos > antall-1 || pos < 0 ){
@@ -100,6 +124,7 @@ public class Lenkeliste<T> implements Liste<T> {
 
   // Metoden fjerner og returnerer elementet på starten av listen.
   public T fjern() throws UgyldigListeIndeks {
+    
     // Tilstanden dersom lenkelisten er tom, da er det ikke mulig å fjerne et element. "UgyldigListeIndeks" kastes med indeks -1.
     if (start == null) {
       UgyldigListeIndeks e = new UgyldigListeIndeks(-1);
@@ -116,6 +141,7 @@ public class Lenkeliste<T> implements Liste<T> {
   // Fjerner elementet på gitt posisjon i listen.
   // @param pos er posisjonen til elementet som skal fjernes.
   public T fjern(int pos) throws UgyldigListeIndeks {
+    
     // Behandler ugyldige posisjonsindekser, altså når posisjonen er negativ eller er større enn antall elementer - 1
     // (pos kan ikke være lik antall siden det ikke er mulig å fjerne et element i en posisjon uten node).
     if  (pos > antall-1 || pos < 0) {
@@ -158,9 +184,10 @@ public class Lenkeliste<T> implements Liste<T> {
     return antall;
   }
 
-  // Metoden hentet ut et element på gitt posisjon.
+  // Metoden henter ut et element på gitt posisjon.
   // @param pos er posisjonen til elementet som skal hentes ut.
   public T hent(int pos) throws UgyldigListeIndeks {
+    
     // Behandler ugyldige posisjonsindekser, altså når posisjonen er negativ eller er større enn antall elementer - 1
     // (ettersom vi teller fra indeks 0 og oppover, kan pos ikke være lik antall siden da vil vi havne på en posisjon uten node).
     if  (pos > antall-1 || pos < 0) {
