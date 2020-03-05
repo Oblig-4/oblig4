@@ -2,6 +2,7 @@
 Dette er et program som lager en generisk klasse Lenkeliste<T> som implementerer grensesnittet Liste<T>.
 Lenkelisten skal være av typen "First in, First out".
 */
+import java.util.Iterator;
 
 public class Lenkeliste<T> implements Liste<T> {
   protected int antall; // antall elementer i lenkelisten
@@ -17,7 +18,7 @@ public class Lenkeliste<T> implements Liste<T> {
   }
   
   protected class LenkelisteIterator implements Iterator<T> {
-    private Node gjeldende;
+    protected Node gjeldende;
   
     public LenkelisteIterator() {
       gjeldende = start;
