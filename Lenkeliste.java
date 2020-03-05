@@ -23,11 +23,13 @@ public class Lenkeliste<T> implements Liste<T> {
     public LenkelisteIterator() {
       gjeldende = start;
     }
-
+    
+    @Override
     public boolean hasNext() {
       return (gjeldende.neste != null);
     }
-
+     
+    @Override
     public T next() {
       Node returneres = gjeldende;
       gjeldende = gjeldene.neste;
