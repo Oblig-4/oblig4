@@ -21,7 +21,7 @@ class Lege implements Comparable<Lege> {
     return navn.compareTo(annen.hentNavn());
   }
 
-//Metoden gjør at det er mulig å hente ut en liste av resepter, som legen har skrevet.
+//Metoden gjør det mulig å hente ut en liste av resepter, som legen har skrevet.
   public Lenkeliste<Resept> hentUtResepter(){
     return utskrevendeResepter;
   }
