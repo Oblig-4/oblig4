@@ -1,5 +1,5 @@
 /*Dette er et program som lager en klasse "Lege" for representasjon av leger.*/
-
+//MANGLER D3
 class Lege implements Comparable<Lege> {
   protected Lenkeliste<Resept> utskrevendeResepter;
   protected String navn;
