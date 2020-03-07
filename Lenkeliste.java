@@ -32,7 +32,7 @@ public class Lenkeliste<T> implements Liste<T> {
     @Override
     public T next() {
       Node returneres = gjeldende;
-      gjeldende = gjeldene.neste;
+      gjeldende = gjeldende.neste;
       return returneres.innhold;
     }
   }
