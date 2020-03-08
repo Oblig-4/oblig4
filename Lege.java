@@ -1,6 +1,6 @@
 /*Dette er et program som lager en klasse "Lege" for representasjon av leger.*/
-//MANGLER D3
-class Lege implements Comparable<Lege> {
+
+class Lege implements Comparable<Lege> extends Lenkeliste<T> {
   protected Lenkeliste<Resept> utskrevendeResepter;
   protected String navn;
 
@@ -22,10 +22,12 @@ class Lege implements Comparable<Lege> {
     return navn.compareTo(annen.hentNavn());
   }
 
-//Metoden gjør det mulig å hente ut en liste av resepter, som legen har skrevet.
+//Metoden gjør at det er mulig å hente ut en liste av resepter, som legen har skrevet.
   public Lenkeliste<Resept> hentUtResepter(){
     return utskrevendeResepter;
   }
+
+  
 
   @Override
   public String toString() {
