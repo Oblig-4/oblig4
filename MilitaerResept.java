@@ -7,8 +7,8 @@ class MilitaerResept extends HvitResept {
 
   // "MilitaerResept" arver egenskaper fra "HvitResept", som igjen arver fra "Resept" (uten tilleggsegenskaper),
   // kaller derfor på superklasssens konstruktør vha. super (med de aktuelle parametrene).
-  public MilitaerResept(Legemiddel legemiddel, Lege utskrivendeLege, int pasientId, int reit) {
-    super(legemiddel, utskrivendeLege, pasientId, reit);
+  public MilitaerResept(Legemiddel legemiddel, Lege utskrivendeLege, Pasient pasient, int reit) {
+    super(legemiddel, utskrivendeLege, pasient, reit);
   }
 
   // Returnerer prisen pasienten må betale. Militærresept gir 100% rabatt, og metoden returnerer derfor 0.
@@ -22,6 +22,6 @@ class MilitaerResept extends HvitResept {
   @Override
   public String toString() {
     return "Militaerresept\n" + "Resept id: " + id + "\nLegemiddel type: " + legemiddel + "\nLege: " + utskrivendeLege.hentNavn() +
-          "\nPasient Id: " + pasientId + "\nReit: " + reit + "\nFarge: " + this.farge() + "\nPris aa betale: " + this.prisAaBetale();
+          ""Pasient info: " + "\n" + pasient + "\n" + "\nReit: " + reit + "\nFarge: " + this.farge() + "\nPris aa betale: " + this.prisAaBetale();
   }
 }
