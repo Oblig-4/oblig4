@@ -27,6 +27,6 @@ class HvitResept extends Resept {
   @Override
   public String toString() {
     return "Hvit resept\n" + "Resept id: " + id + "\nLegemiddel type: " + legemiddel + "\nLege: " + utskrivendeLege.hentNavn() +
-          "Pasient info: " + "\n" + pasient + "\n" + "\nReit: " + reit + "\nFarge: " + this.farge() + "\nPris aa betale: " + this.prisAaBetale();
+          "Pasient info: " + "\n" + pasient +  "\nReit: " + reit + "\nFarge: " + this.farge() + "\nPris aa betale: " + this.prisAaBetale();
   }
 }
