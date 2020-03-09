@@ -6,7 +6,7 @@ for representasjon av blå resepter.
 class BlaaResept extends Resept {
 
   // "BlaaResept" arver egenskaper fra "Resept" (uten tilleggsegenskaper) , kaller derfor på superklasssens konstruktør vha. super (med de aktuelle parametrene).
-  public BlaaResept(Legemiddel legemiddel, Lege utskrivendeLege, int pasientId, int reit) {
+  public BlaaResept(Legemiddel legemiddel, Lege utskrivendeLege, Pasient pasient, int reit) {
     super(legemiddel, utskrivendeLege, pasientId, reit);
   }
 
