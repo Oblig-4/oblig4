@@ -10,14 +10,17 @@ class Integrasjonstest {
     Vanedannende vanedan = new Vanedannende("Zopiklon", 185, 10, 2);
     Vanlig van = new Vanlig("Paracet", 49.90, 510);
     Vanlig van2 = new Vanlig("Ibux", 120, 200);
+    
+    Pasient pasient = new Pasient("Nini", "12345678911");
+    Pasient pasient2 = new Pasient("T. Nguyen", "12345678911");
 
     Lege lege = new Lege("Dr. Phil");
     Spesialist spesialist = new Spesialist("Dr. Peters", 12345);
 
-    HvitResept hvit = new HvitResept(narko, spesialist, 6, 4);
-    BlaaResept blaa = new BlaaResept(vanedan, lege, 20, 2);
-    MilitaerResept militaer = new MilitaerResept(van, lege, 15, 5);
-    PResept presept = new PResept(van2, lege, 10);
+    HvitResept hvit = new HvitResept(narko, spesialist, pasient, 4);
+    BlaaResept blaa = new BlaaResept(vanedan, lege, pasient, 2);
+    MilitaerResept militaer = new MilitaerResept(van, lege, pasient2, 5);
+    PResept presept = new PResept(van2, lege, pasient2);
 
     System.out.println(narko + "\n");
     System.out.println(vanedan + "\n");
