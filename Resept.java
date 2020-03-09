@@ -16,10 +16,10 @@ abstract class Resept {
   // @param pasientId er ID-en til pasienten som eier resepten.
   // @param reit er antall ganger som er igjen på resepten.
   // "id" settes til å bli lik "teller", som deretter økes med 1. Siden "teller" er static vil verdien øke for hver instans av klassen, slik at hver resept får en unik id.
-  public Resept(Legemiddel legemiddel, Lege utskrivendeLege, int pasientId, int reit) {
+  public Resept(Legemiddel legemiddel, Lege utskrivendeLege, Pasient pasient, int reit) {
     this.legemiddel = legemiddel;
     this.utskrivendeLege = utskrivendeLege;
-    this.pasientId = pasientId;
+    this.pasient = pasient;
     this.reit = reit;
     id = teller;
     teller++;
@@ -35,10 +35,6 @@ abstract class Resept {
 
   public Lege hentLege() {
     return utskrivendeLege;
-  }
-
-  public int hentPasientId() {
-    return pasientId;
   }
 
   public int hentReit() {
