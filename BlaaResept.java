@@ -26,7 +26,7 @@ class BlaaResept extends Resept {
   @Override
   public String toString() {
     return "Blaa resept\n" + "Resept id: " + id + "\nLegemiddel type: " + legemiddel + "\nLege: " + utskrivendeLege.hentNavn() + "Pasient info: " + "\n" + pasient + "\n" +
-          "\nPasient id: " + pasientId + "\nReit: " + reit + "\nFarge: " + this.farge() + "\nPris aa betale: " + this.prisAaBetale();
+           "\nReit: " + reit + "\nFarge: " + this.farge() + "\nPris aa betale: " + this.prisAaBetale();
   }
 
 }
