@@ -15,13 +15,13 @@ class Lege implements Comparable<Lege> {
 
 
 
-  public String hentNavn() {
+  public String hentLegensNavn() {
     return navn;
   }
 
 //Leger sorteres alfabetisk etter navn.
   public int compareTo(Lege annen){
-    return navn.compareTo(annen.hentNavn());
+    return navn.compareTo(annen.hentLegensNavn());
   }
 
 //Metoden gjør at det er mulig å hente ut en liste av resepter, som legen har skrevet.
@@ -36,11 +36,29 @@ class Lege implements Comparable<Lege> {
     return "Lege\n" + "Navn: " + navn;
   }
 
-  public HvitResept skrivHvitResept(Legemiddel legemiddel, Pasient pasient, int reit) throws UlovligUtskrift{
+  public Hvit skrivHvitResept(Legemiddel legemiddel, Pasient pasient, int reit) throws UlovligUtskrift{
     if (legemiddel instanceof Narkotisk){
-      throw new UlovligUtskrift(this, legemiddel, pas);
+      throw new UlovligUtskrift(this, legemiddel, pasient.hentPasientId());
     }
-    HvitResept h = new HvitResept(legemiddel, this, pasient, reit);
+    Hvit h = new Hvit(legemiddel, this, pasient, reit);
     utskrevendeResepter.leggTil(h);
+    return h;
   }
+
+  public Millitaer skrivMillitaerResept(Legemiddel legemiddel, Pasient pasient, int reit) throws UlovligUtskrift {
+    if (legemiddel instanceof Narkotisk){
+      throw new UlovligUtskrift(this, legemiddel, pasient.hentPasientId());
+    }
+
+    Militaer m = new Millitaer()legemiddel, this, pasient.hentPasientId(), reit);
+    utskrevendeResepter.leggTil(m);
+    return m;
+  }
+
+  public PResept skrivPResept(Legemiddel legemiddel, Pasient pasient) throws UlovligUtskrift;
+
+  public BlaaResept skrivBlaaResept(Legemiddel legemiddel, Pasient pasient, int reit) throws UlovligUtskrift;
+
+
+  
 }
