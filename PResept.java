@@ -25,7 +25,7 @@ class PResept extends HvitResept {
   }
   
   public String toString(){
-    return "P-resept\n" + "Resept id: " + id + "\nLegemiddel type: " + legemiddel + "\nLege: " + utskrivendeLege.hentenavn() + 
+    return "P-resept\n" + "Resept id: " + id + "\nLegemiddel type: " + legemiddel + "\nLege: " + utskrivendeLege.hentNavn() + 
     "\n" + "Pasient info: " + "\n" + pasient + "\n" +"\nReit: " + reit + "\Farge: " + this.farge() + "\nPris aa betale: " + this.prisAaBetale();
   }
 }
