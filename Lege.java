@@ -15,13 +15,13 @@ class Lege implements Comparable<Lege> {
 
 
 
-  public String hentLegensNavn() {
+  public String hentNavn() {
     return navn;
   }
 
 //Leger sorteres alfabetisk etter navn.
   public int compareTo(Lege annen){
-    return navn.compareTo(annen.hentLegensNavn());
+    return navn.compareTo(annen.hentNavn());
   }
 
 //Metoden gjør at det er mulig å hente ut en liste av resepter, som legen har skrevet.
