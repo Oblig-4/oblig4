@@ -6,8 +6,8 @@ Klassen tester kun egenskapene som er implementert forskjellig fra reseptens for
 
 class TestResepter {
   public static void main(String[] args) {
-    Pasient pasient = new Pasient("Dr. william", "123456789");
-    Pasient pasient2 = new Pasient("Dr. T. Nguyen", "123456789");
+    Pasient pasient = new Pasient("Nini", "123456789");
+    Pasient pasient2 = new Pasient("T. Nguyen", "123456789");
     
     Narkotisk narko = new Narkotisk("Morfin", 255.90, 15, 10);
     Vanedannende vanedan = new Vanedannende("Zopiklon", 185, 10, 5);
