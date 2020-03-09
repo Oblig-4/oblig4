@@ -1,7 +1,5 @@
 /*Dette er et program som lager en klasse "Lege" for representasjon av leger.*/
 
-/*Dette er et program som lager en klasse "Lege" for representasjon av leger.*/
-
 class Lege implements Comparable<Lege> {
   protected Lenkeliste<Resept> utskrevendeResepter;
   protected String navn;
@@ -36,29 +34,42 @@ class Lege implements Comparable<Lege> {
     return "Lege\n" + "Navn: " + navn;
   }
 
-  public Hvit skrivHvitResept(Legemiddel legemiddel, Pasient pasient, int reit) throws UlovligUtskrift{
+  public HvitResept skrivHvitResept(Legemiddel legemiddel, Pasient pasient, int reit) throws UlovligUtskrift{
     if (legemiddel instanceof Narkotisk){
       throw new UlovligUtskrift(this, legemiddel, pasient.hentPasientId());
     }
-    Hvit h = new Hvit(legemiddel, this, pasient, reit);
+    HvitResept h = new HvitResept(legemiddel, this, pasient, reit);
     utskrevendeResepter.leggTil(h);
     return h;
   }
 
-  public Millitaer skrivMillitaerResept(Legemiddel legemiddel, Pasient pasient, int reit) throws UlovligUtskrift {
+  public MillitaerResept skrivMillitaerResept(Legemiddel legemiddel, Pasient pasient, int reit) throws UlovligUtskrift {
     if (legemiddel instanceof Narkotisk){
       throw new UlovligUtskrift(this, legemiddel, pasient.hentPasientId());
     }
 
-    Militaer m = new Millitaer()legemiddel, this, pasient.hentPasientId(), reit);
+    MilitaerResept m = new MillitaerResept(legemiddel, this, pasient, reit);
     utskrevendeResepter.leggTil(m);
     return m;
   }
 
-  public PResept skrivPResept(Legemiddel legemiddel, Pasient pasient) throws UlovligUtskrift;
+  public PResept skrivPResept(Legemiddel legemiddel, Pasient pasient) throws UlovligUtskrift {
+    if (legemiddel instanceof Narkotisk){
+      throw new UlovligUtskrift(this, legemiddel, pasient.hentPasientId());
+    }
 
-  public BlaaResept skrivBlaaResept(Legemiddel legemiddel, Pasient pasient, int reit) throws UlovligUtskrift;
+    PResept p = new PResept(legemiddel, this, pasient);
+    utskrevendeResepter.leggTil(p);
+    return p;
+  }
 
+  public BlaaResept skrivBlaaResept(Legemiddel legemiddel, Pasient pasient, int reit) throws UlovligUtskrift {
+    if (legemiddel instanceof Narkotisk){
+      throw new UlovligUtskrift(this, legemiddel, pasient.hentPasientId());
+    }
 
-  
+    BlaaResept b = new BlaaResept(legemiddel, this, pasient, reit);
+    utskrevendeResepter.leggTil(b);
+    return b;
+  }
 }
