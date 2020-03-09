@@ -33,7 +33,7 @@ class Pasient{
   }
 
   public String toString(){
-    return "Pasients navn:  " + navn + "\n" + "PasientId: " + pasientId + "\n" + "Pasientfodselsnummer: " + fodselsnummer;
+    return "Pasientens navn:  " + navn + "\n" + "PasientId: " + pasientId + "\n" + "Pasientfodselsnummer: " + fodselsnummer;
   }
 
 }
