@@ -25,7 +25,7 @@ class BlaaResept extends Resept {
   // Overskriver toString() metoden til å returnere all tilgjengelig informasjon om objektet.
   @Override
   public String toString() {
-    return "Blaa resept\n" + "Resept id: " + id + "\nLegemiddel type: " + legemiddel + "\nLege: " + utskrivendeLege.hentNavn() + "Pasient info: " + "\n" + pasient + "\n" +
+    return "Blaa resept\n" + "Resept id: " + id + "\nLegemiddel type: " + legemiddel + "\nLege: " + utskrivendeLege.hentNavn() + "Pasient info: " + "\n" + pasient  +
            "\nReit: " + reit + "\nFarge: " + this.farge() + "\nPris aa betale: " + this.prisAaBetale();
   }
 
