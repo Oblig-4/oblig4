@@ -7,7 +7,7 @@ class HvitResept extends Resept {
 
   // "HvitResept" arver egenskaper fra "Resept" (uten tilleggsegenskaper) , kaller derfor på superklasssens konstruktør vha. super (med de aktuelle parametrene).
   public HvitResept(Legemiddel legemiddel, Lege utskrivendeLege, Pasient pasient, int reit) {
-    super(legemiddel, utskrivendeLege, pasientId, reit);
+    super(legemiddel, utskrivendeLege, pasient, reit);
   }
 
   @Override
