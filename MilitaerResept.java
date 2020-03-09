@@ -22,6 +22,6 @@ class MilitaerResept extends HvitResept {
   @Override
   public String toString() {
     return "Militaerresept\n" + "Resept id: " + id + "\nLegemiddel type: " + legemiddel + "\nLege: " + utskrivendeLege.hentNavn() +
-          "Pasient info: " + "\n" + pasient  + "\nReit: " + reit + "\nFarge: " + this.farge() + "\nPris aa betale: " + this.prisAaBetale();
+          "\nPasient info: " + "\n" + pasient  + "\nReit: " + reit + "\nFarge: " + this.farge() + "\nPris aa betale: " + this.prisAaBetale();
   }
 }
