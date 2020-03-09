@@ -16,12 +16,24 @@ class Pasient{
     resepter.leggPaa(resept);
   }
 
+  public int hentPasientId(){
+    return pasientId;
+  }
+
+  public String hentPasientsNavn(){
+    return navn;
+  }
+
+  public String hentFodselsnummer(){
+    return fodselsnummer;
+  }
+
   public Stabel<Resept> hentUtResepter(){
     return resepter;
   }
 
-  @Override
   public String toString(){
-    return "Pasient informasjon" + "\n" + "Navn: " + navn + "\n" + "Fodselsnummer: " + fodselsnummer;
+    return "Pasients navn:  " + navn + "\n" + "PasientId: " + pasientId + "\n" + "Pasientfodselsnummer: " + fodselsnummer;
   }
+
 }
