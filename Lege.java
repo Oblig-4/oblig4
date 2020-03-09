@@ -1,6 +1,8 @@
 /*Dette er et program som lager en klasse "Lege" for representasjon av leger.*/
 
-class Lege implements Comparable<Lege> extends Lenkeliste<T> {
+/*Dette er et program som lager en klasse "Lege" for representasjon av leger.*/
+
+class Lege implements Comparable<Lege> {
   protected Lenkeliste<Resept> utskrevendeResepter;
   protected String navn;
 
@@ -27,11 +29,18 @@ class Lege implements Comparable<Lege> extends Lenkeliste<T> {
     return utskrevendeResepter;
   }
 
-  
+
 
   @Override
   public String toString() {
     return "Lege\n" + "Navn: " + navn;
   }
 
+  public HvitResept skrivHvitResept(Legemiddel legemiddel, Pasient pasient, int reit) throws UlovligUtskrift{
+    if (legemiddel instanceof Narkotisk){
+      throw new UlovligUtskrift(this, legemiddel, pas);
+    }
+    HvitResept h = new HvitResept(legemiddel, this, pasient, reit);
+    utskrevendeResepter.leggTil(h);
+  }
 }
