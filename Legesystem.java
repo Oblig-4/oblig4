@@ -7,12 +7,16 @@ class Legesystem{
   private Lenkeliste<Pasient> pasienter;
   private SortertLenkeliste<Lege> leger;
   private Lenkeliste<Legemiddel> legemidler;
-  
+  private Lenkeliste<Resept> resepter;
+
   public Legesystem(){
     pasienter = new Lenkeliste<Pasient>();
     legemidler = new Lenkeliste<Legemiddel>();
     leger = new SortertLenkeliste<Lege>();
+    resepter = new Lenkeliste<Resept>();
+
   }
+
 
   public void lesFraFil(File filnavn) throws FileNotFoundException, UlovligUtskrift{
 
@@ -28,7 +32,10 @@ class Legesystem{
 
 //lager liste med pasienter
       while (fil.hasNextLine()){
-        while (fil.nextLine() != "#") {
+        linje = fil.nextLine();
+
+        while (linje.charAt(0) != '#') { //charAt(int index) returnerer char verdi på den gitt indexen.
+          linje = fil.nextLine();
           String[] data = linje.split(",");
           String p = data[0];
           String fodselsnummer = data[1];
@@ -37,7 +44,8 @@ class Legesystem{
         }
 
 //lager liste med legemidler
-        while (fil.nextLine() != "#") {
+        while (linje.charAt(0) != '#') {
+          linje = fil.nextLine();
           String[] data = linje.split(",");
           String navn = data[0];
           String type = data[1];
@@ -63,7 +71,8 @@ class Legesystem{
         }
 
 //lager liste med leger -sortert
-        while (fil.nextLine() != "#"){
+        while (linje.charAt(0) != '#'){
+          linje = fil.nextLine();
           String[] data = linje.split(",");
           String navn = data[0];
           int id = Integer.parseInt(data[1]);
@@ -76,7 +85,8 @@ class Legesystem{
         }
 
 //lager liste med resepter
-        while (fil.nextLine() != "#"){
+        while (linje.charAt(0) != '#'){
+          linje = fil.nextLine();
           String[] data = linje.split(",");
           int id = Integer.parseInt(data[0]);
           String navn = data[1];
@@ -93,7 +103,7 @@ class Legesystem{
 
           //finner riktig lege
           for (Lege l : leger) {
-            if(l.hentNavn() == navn) {
+            if(l.hentLegensNavn() == navn) {
               leg = l;
              }
            }
@@ -113,17 +123,21 @@ class Legesystem{
           }
 
           if (farge == "p"){
-            leg.skrivPResept(lm, pas);
+            Resept r = leg.skrivPResept(lm, pas);
+            resepter.leggTil(r);
           }
 
           else if (farge == "hvit") {
-            leg.skrivHvitResept(lm, pas, reit);
+            Resept r = leg.skrivHvitResept(lm, pas, reit);
+            resepter.leggTil(r);
           }
           else if (farge == "millitaer"){
-            leg.skrivMillitaerResept(lm, pas, reit);
+            Resept r = leg.skrivMillitaerResept(lm, pas, reit);
+            resepter.leggTil(r);
           }
           else if (farge == "blaa") {
-            leg.skrivBlaaResept(lm, pas, reit);
+            Resept r = leg.skrivBlaaResept(lm, pas, reit);
+            resepter.leggTil(r);
           }
         }
       }
