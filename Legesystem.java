@@ -103,7 +103,7 @@ class Legesystem{
 
           //finner riktig lege
           for (Lege l : leger) {
-            if(l.hentLegensNavn() == navn) {
+            if(l.hentNavn() == navn) {
               leg = l;
              }
            }
