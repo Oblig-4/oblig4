@@ -225,9 +225,8 @@ class Legesystem{
     }
 
     System.out.println("Du tastet 0, programmet avsluttes.");
-
-
-
+    
+  }
 
 
   //E3
@@ -253,3 +252,4 @@ class Legesystem{
        System.out.println(lege);
      }
    }
+ }
