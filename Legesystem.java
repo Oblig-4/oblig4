@@ -7,13 +7,13 @@ class Legesystem{
   private Lenkeliste<Pasient> pasienter;
   private SortertLenkeliste<Lege> leger;
   private Lenkeliste<Legemiddel> legemidler;
-  private Lenkeliste<Resept> resepter;
+  //private Lenkeliste<Resept> resepter;
 
   public Legesystem(){
     pasienter = new Lenkeliste<Pasient>();
     legemidler = new Lenkeliste<Legemiddel>();
     leger = new SortertLenkeliste<Lege>();
-    resepter = new Lenkeliste<Resept>();
+  //  resepter = new Lenkeliste<Resept>();
 
   }
 
@@ -118,7 +118,7 @@ class Legesystem{
             if(pId < pasienter.stoerrelse() && id < legemidler.stoerrelse()){
               //finner riktig lege
               for (int i=0; i < leger.stoerrelse(); i++) {
-                if(leger.hent(i).hentLegensNavn().equals(navn)) {
+                if(leger.hent(i).hentNavn().equals(navn)) {
                   leg = leger.hent(i);
                  }
                }
@@ -138,19 +138,19 @@ class Legesystem{
               }
               if (farge == "p"){
                 Resept r = leg.skrivPResept(lm, pas);
-                resepter.leggTil(r);
+                pas.leggTilResept(r);
               }
               else if (farge == "hvit") {
                 Resept r = leg.skrivHvitResept(lm, pas, reit);
-                resepter.leggTil(r);
+                pas.leggTilResept(r);
               }
               else if (farge == "millitaer"){
                 Resept r = leg.skrivMillitaerResept(lm, pas, reit);
-                resepter.leggTil(r);
+                pas.leggTilResept(r);
               }
               else if (farge == "blaa") {
                 Resept r = leg.skrivBlaaResept(lm, pas, reit);
-                resepter.leggTil(r);
+                pas.leggTilResept(r);
               }
             }// slutt på if
             try{
