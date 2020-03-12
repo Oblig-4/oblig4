@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.NoSuchElementException;
+import java.util.InputMismatchException;
 
 class Legesystem{
   private Lenkeliste<Pasient> pasienter;
