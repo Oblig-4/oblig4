@@ -183,31 +183,53 @@ class Legesystem{
     int svar = sc.nextInt();
 
     while (svar != 0){
-      if (svar == 1){
-        skrivUtOversikt();
-      }
+      try  {
+        if (svar == 1){
+          this.skrivUtOversikt();
+        }
+        catch(InputMismatchException e){
+          System.out.println("Ugyldig input, gaar tilbake til hovecmeny");
+          hovedmeny();
+        }
 
-      else if (svar == 2){
+        else if (svar == 2){
+          this.skrivUtResept();
 
-      }
+        }
+        catch(InputMismatchException e){
+          System.out.println("Ugyldig input, gaar tilbake til hovecmeny");
+          hovedmeny();
+        }
 
-      else if (svar == 3){
-        skrivUtResept();
-      }
+        else if (svar == 3){
+          this.statistikkMeny();
+        }
+        catch(InputMismatchException e){
+          System.out.println("Ugyldig input, gaar tilbake til hovecmeny");
+          hovedmeny();
+        }
 
-      else if (svar == 4){
+        else if (svar == 4){
+          this.leggTilElement();
 
+        }
+      }catch(InputMismatchException e){
+        System.out.println("Ugyldig input, gaar tilbake til hovecmeny");
+        hovedmeny();
       }
 
       System.out.println("Vil du fortsette eller avslutte?");
-      int svar = sc.nextInt();
-      this.meny();
+      int svar1 = sc.nextInt();
+      meny();
     }
 
     System.out.println("Du tastet 0, programmet avsluttes.");
- 
-}
-  
+
+
+
+
+
+  //E3
   public void skrivUtOversikt() {
      System.out.println("Fullstendig oversikt over pasienter, leger, legemidler og resepter:" + "\n");
      System.out.println("Pasienter:");
