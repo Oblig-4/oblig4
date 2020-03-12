@@ -207,3 +207,26 @@ class Legesystem{
     System.out.println("Du tastet 0, programmet avsluttes.");
  
 }
+  
+  public void skrivUtOversikt() {
+     System.out.println("Fullstendig oversikt over pasienter, leger, legemidler og resepter:" + "\n");
+     System.out.println("Pasienter:");
+     for (Pasient pasient : pasienter) {
+       System.out.println(pasient);
+       System.out.println("\nPasientenes resepter: ");
+       for (Resept r : pasient.hentUtResepter()) {
+         System.out.println(r);
+       }
+     }
+
+     System.out.println("Legemidler:");
+     for (Legemiddel lm : legemidler) {
+       System.out.println(lm);
+     }
+
+
+     System.out.println("Leger:");
+     for (Lege lege : leger) {
+       System.out.println(lege);
+     }
+   }
