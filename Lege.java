@@ -1,4 +1,5 @@
 /*Dette er et program som lager en klasse "Lege" for representasjon av leger.*/
+//Klaasen implementerer grensesnittet "Comparable<Lege>, og metoden "compareTo".
 
 class Lege implements Comparable<Lege> {
   protected Lenkeliste<Resept> utskrevendeResepter;
@@ -23,6 +24,7 @@ class Lege implements Comparable<Lege> {
   }
 
 //Metoden gjør at det er mulig å hente ut en liste av resepter, som legen har skrevet.
+  //Dette gjøres ved å ta opprette en lenkeliste av resepter.
   public Lenkeliste<Resept> hentUtResepter(){
     return utskrevendeResepter;
   }
@@ -33,7 +35,9 @@ class Lege implements Comparable<Lege> {
   public String toString() {
     return "Lege\n" + "Navn: " + navn;
   }
-
+// Leger har metoden for å opprette instanser av de fire Reseptklassene (Hvit resept. p-resept, militærresept og blå resept).
+  //Når et reseptobjekt opprettes, skal det legges inn i listen over legens utskrevne resepter (hentUtResepter), før de returneres.
+  //Om en vanlig lege prøver å skrive ut et narkotisk legemideel, blir unntaket "UlovligUtskrift" kastet.
   public HvitResept skrivHvitResept(Legemiddel legemiddel, Pasient pasient, int reit) throws UlovligUtskrift{
     if (legemiddel instanceof Narkotisk){
       throw new UlovligUtskrift(this, legemiddel, pasient.hentPasientId());
