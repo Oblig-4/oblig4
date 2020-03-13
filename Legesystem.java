@@ -335,7 +335,7 @@ class Legesystem{
     Scanner scan = new Scanner(System.in);//1
     int a = scan.nextInt();//a=1
     System.out.println("Valgt pasient:" + pasienter.hent(a));
-    System.out.println("Hvilken resept vil du bruke");
+    System.out.println("Hvilken resept vil du bruke?");
     int telle = 0;
     while (telle < resepter.stoerrelse()){
       for (Pasient e: resepter){
