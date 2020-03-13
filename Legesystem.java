@@ -395,7 +395,9 @@ class Legesystem{
           antNarkotisk +=1;
         }
       }
-    System.out.println(l + "\n" + "Antall utskrevne resepter paa narkotiske legemidler:" + antNarkotisk +"\n");
+      if (antNarkotisk > 0){
+        System.out.println(l + "\n" + "Antall utskrevne resepter paa narkotiske legemidler:" + antNarkotisk +"\n");
+      }
     }
   }
 }
