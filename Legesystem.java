@@ -252,4 +252,40 @@ class Legesystem{
        System.out.println(lege);
      }
    }
+  
+   //E5
+   public void skrivUtResept(){ //Dersom koden ikke funker --> HashMap
+     int stoerrelse = 0;
+     //Så lenge størrelse i listen er mindre en teller print tall
+      System.out.println("Hvem vil du se resepter for?");
+      //Bruker en for-løkke som går gjennom listen og printer ut pasienten + fnr
+      while ( stoerrelse < pasienter.stoerrelse()){
+        for (Pasient e: pasienter){
+          System.out.println(stoerrelse+":" + e);
+}
+  stoerrelse++;
+}
+    Scanner scan = new Scanner(System.in);//1
+    int a = scan.nextInt();//a=1
+    System.out.println("Valgt pasient:" + pasienter.hent(a));
+    System.out.println("Hvilken pasient vil du bruke");
+    int telle = 0;
+    while (telle < resepter.stoerrelse()){
+      for (Pasient e: resepter){
+        System.out.println(telle +":" + e);
+      }
+    telle++;
+    }
+    //Tom reit
+    int b = scan.nextInt();
+    if(resepter.hent(b).hentReit()==0){
+      System.out.println("Kunne ikke bruke paa" + resepter.hent(b) + "(ingen gjenvaerende reit.)");
+      this.meny();
+    }
+    else{
+      resepter.hent(b).bruk();
+      System.out.println("Brukte resept paa" + resepter.hent(b)+". Antall gjenvaerende reit:" +  resepter.hent(b).hentReit());
+      this.meny();
+    }
+}
  }
