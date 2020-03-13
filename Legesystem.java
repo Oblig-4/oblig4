@@ -135,7 +135,7 @@ class Legesystem{
             if(pId < pasienter.stoerrelse() && id < legemidler.stoerrelse()){
             //finner riktig lege
               for (int i=0; i < leger.stoerrelse(); i++) {
-                if(leger.hent(i).hentLegensNavn().equals(navn)) {
+                if(leger.hent(i).hentNavn().equals(navn)) {
                   leg = leger.hent(i);
                 }
               }
@@ -212,113 +212,6 @@ class Legesystem{
     }
     fil.close();
   }
-  
- //E2
-
-  public void meny() {
-    System.out.println("Meny:" + "\n");
-    System.out.println("1: Skriv ut en fullstendig oversikt over pasienter, leger, legemidler og resepter");
-    System.out.println("2: Bruk en gitt resept fra listen til en pasient");
-    System.out.println("3: Skriv ut forskjellige former for statistikk");
-    System.out.println("4: Skriv ut alle data til fil");
-    System.out.println("Skriv 0 for å avslutte:");
-
-  }
-
-
-
-  public void hovedmeny(){
-    this.meny();
-    Scanner sc = new Scanner(System.in);
-    int svar = sc.nextInt();
-    while (svar != 0){
-      try  {
-        if (svar == 1){
-          this.skrivUtOversikt();
-        }
-        }
-
-        catch(InputMismatchException e){
-          System.out.println("Ugyldig input, gaar tilbake til hovedmeny");
-          hovedmeny();
-        }
-
-        try {
-         if (svar == 2){
-          this.skrivUtResept();
-        }
-        }
-        catch(InputMismatchException e){
-          System.out.println("Ugyldig input, gaar tilbake til hovedmeny");
-          hovedmeny();
-        }
-
-        try{
-         if (svar == 3){
-          this.statistikkMeny();
-        }
-      }
-        catch(InputMismatchException e){
-          System.out.println("Ugyldig input, gaar tilbake til hovedmeny");
-          hovedmeny();
-        }
-
-        try{
-         if (svar == 4){
-          this.leggTilElement();
-        }
-        }
-      catch(InputMismatchException e){
-        System.out.println("Ugyldig input, gaar tilbake til hovedmeny");
-        hovedmeny();
-      }
-      System.out.println("Vil du fortsette eller avslutte?");
-      int svar1 = sc.nextInt();
-      meny();
-    }
-    System.out.println("Du tastet 0, programmet avsluttes.");
-
-
-
-    
-     //E5
-   public void skrivUtResept(){ //Dersom koden ikke funker --> HashMap
-     int stoerrelse = 0;
-     //Så lenge størrelse i listen er mindre en teller print tall
-      System.out.println("Hvem vil du se resepter for?");
-      //Bruker en for-løkke som går gjennom listen og printer ut pasienten + fnr
-      while ( stoerrelse < pasienter.stoerrelse()){
-        for (Pasient e: pasienter){
-          System.out.println(stoerrelse+":" + e);
-}
-  stoerrelse++;
-}
-    Scanner scan = new Scanner(System.in);//1
-    int a = scan.nextInt();//a=1
-    System.out.println("Valgt pasient:" + pasienter.hent(a));
-    System.out.println("Hvilken pasient vil du bruke");
-    int telle = 0;
-    while (telle < resepter.stoerrelse()){
-      for (Pasient e: resepter){
-        System.out.println(telle +":" + e);
-      }
-    telle++;
-    }
-    //Tom reit
-    int b = scan.nextInt();
-    if(resepter.hent(b).hentReit()==0){
-      System.out.println("Kunne ikke bruke paa" + resepter.hent(b) + "(ingen gjenvaerende reit.)");
-      this.meny();
-    }
-    else{
-      resepter.hent(b).bruk();
-      System.out.println("Brukte resept paa" + resepter.hent(b)+". Antall gjenvaerende reit:" +  resepter.hent(b).hentReit());
-      this.meny();
-    }
-}
-
-
-//E6
   public void statistikk(){
     int antVane = 0;
     int antNarko = 0;
