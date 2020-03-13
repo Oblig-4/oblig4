@@ -214,6 +214,7 @@ class Legesystem{
   }
   
  //E2
+
   public void meny() {
     System.out.println("Meny:" + "\n");
     System.out.println("1: Skriv ut en fullstendig oversikt over pasienter, leger, legemidler og resepter");
@@ -221,55 +222,64 @@ class Legesystem{
     System.out.println("3: Skriv ut forskjellige former for statistikk");
     System.out.println("4: Skriv ut alle data til fil");
     System.out.println("Skriv 0 for å avslutte:");
+
   }
+
+
 
   public void hovedmeny(){
     this.meny();
     Scanner sc = new Scanner(System.in);
     int svar = sc.nextInt();
-
     while (svar != 0){
       try  {
         if (svar == 1){
           this.skrivUtOversikt();
         }
+        }
+
         catch(InputMismatchException e){
-          System.out.println("Ugyldig input, gaar tilbake til hovecmeny");
+          System.out.println("Ugyldig input, gaar tilbake til hovedmeny");
           hovedmeny();
         }
 
-        else if (svar == 2){
+        try {
+         if (svar == 2){
           this.skrivUtResept();
-
         }
-        catch(InputMismatchException e){
-          System.out.println("Ugyldig input, gaar tilbake til hovecmeny");
-          hovedmeny();
-        }
-
-        else if (svar == 3){
-          this.statistikkMeny();
         }
         catch(InputMismatchException e){
           System.out.println("Ugyldig input, gaar tilbake til hovedmeny");
           hovedmeny();
         }
 
-        else if (svar == 4){
-          this.leggTilElement();
-
+        try{
+         if (svar == 3){
+          this.statistikkMeny();
         }
-      }catch(InputMismatchException e){
+      }
+        catch(InputMismatchException e){
+          System.out.println("Ugyldig input, gaar tilbake til hovedmeny");
+          hovedmeny();
+        }
+
+        try{
+         if (svar == 4){
+          this.leggTilElement();
+        }
+        }
+      catch(InputMismatchException e){
         System.out.println("Ugyldig input, gaar tilbake til hovedmeny");
         hovedmeny();
       }
-
       System.out.println("Vil du fortsette eller avslutte?");
       int svar1 = sc.nextInt();
       meny();
     }
-
     System.out.println("Du tastet 0, programmet avsluttes.");
+
+
+
     
      //E5
    public void skrivUtResept(){ //Dersom koden ikke funker --> HashMap
@@ -308,7 +318,7 @@ class Legesystem{
 }
 
 
-
+//E6
   public void statistikk(){
     int antVane = 0;
     int antNarko = 0;
