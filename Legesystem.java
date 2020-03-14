@@ -282,7 +282,7 @@ class Legesystem{
 
       try{
         if (svar == 5){
-          this.METODE E8();
+          this.METODE E8(); //Mangler metode, ikke ferdig 
         }
       }
       catch(InputMismatchException e){
@@ -295,85 +295,9 @@ class Legesystem{
     }
     System.out.println("Du tastet 0, programmet avsluttes.");//E2
 
-  public void meny() {
-    System.out.println("Meny:" + "\n");
-    System.out.println("1: Skriv ut en fullstendig oversikt over pasienter, leger, legemidler og resepter");
-    System.out.println("2: Opprette og legge til nye elementer i systemet:");
-    System.out.println("3: Bruk en gitt resept fra listen til en pasient");
-    System.out.println("4: Skriv ut forskjellige former for statistikk");
-    System.out.println("5: Skriv ut alle data til fil");
-    System.out.println("Skriv 0 for å avslutte:");
+  
 
-  }
-  public void hovedmeny(){ //IF-test som sjekker at tallene ikke tastes, går tilbake til meny.
-    this.meny();
-    Scanner sc = new Scanner(System.in);
-    int svar = sc.nextInt();
-
-    while (svar != 0){
-      try  {
-        if (svar == 1){
-          this.skrivUtOversikt();
-        }
-        }
-
-        catch(InputMismatchException e){
-          System.out.println("Ugyldig input, gaar tilbake til hovedmeny");
-          hovedmeny();
-
-        }
-
-
-        try {
-         if (svar == 2){
-          this.leggTilElement();
-        }
-        }
-
-        catch(InputMismatchException e){
-          System.out.println("Ugyldig input, gaar tilbake til hovedmeny");
-          hovedmeny();
-
-        }
-
-
-        try{
-         if (svar == 3){
-          this.skrivUtResept();
-        }
-      }
-        catch(InputMismatchException e){
-          System.out.println("Ugyldig input, gaar tilbake til hovedmeny");
-          hovedmeny();
-        }
-
-
-        try{
-         if (svar == 4){
-           this.statistikkMeny();
-        }
-        }
-
-      catch(InputMismatchException e){
-        System.out.println("Ugyldig input, gaar tilbake til hovedmeny");
-        hovedmeny();
-
-      }
-
-      try{
-        if (svar == 5){
-          this.METODE E8(); //IKKE FERDIG
-        }
-      }
-      catch(InputMismatchException e){
-        System.out.println("Ugyldig input, gaar tilbake til hovedmeny");
-        hovedmeny();
-
-      System.out.println("Vil du fortsette eller avslutte?");
-      int svar1 = sc.nextInt();
-      meny();
-    }
-    System.out.println("Du tastet 0, programmet avsluttes.");
+     
    
     // E3
    public void skrivUtOversikt() {
