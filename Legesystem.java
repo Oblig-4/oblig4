@@ -221,7 +221,7 @@ class Legesystem{
     System.out.println("2: Opprette og legge til nye elementer i systemet:");
     System.out.println("3: Bruk en gitt resept fra listen til en pasient");
     System.out.println("4: Skriv ut forskjellige former for statistikk");
-    System.out.println("5: Skriv ut alle data til fil");
+    System.out.println("5: Skriv alle data til fil");
     System.out.println("Skriv 0 for å avslutte:");
 
   }
