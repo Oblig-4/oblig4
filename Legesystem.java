@@ -259,7 +259,7 @@ class Legesystem{
 
         try{
          if (svar == 3){
-          this.skrivUtResept();
+          this.brukResept();
         }
       }
         catch(InputMismatchException e){
@@ -326,7 +326,7 @@ class Legesystem{
 
 //E5
     
-  public void skrivUtResept(){ //Dersom koden ikke funker --> HashMap
+  public void brukResept(){ //Dersom koden ikke funker --> HashMap
      int stoerrelse = 0;
      //Så lenge størrelse i listen er mindre en teller print tall
       System.out.println("Hvem vil du se resepter for?");
